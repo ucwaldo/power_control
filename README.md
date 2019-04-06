@@ -31,7 +31,8 @@ Once installed, startup configuration can be set in your `config.exs` like so:
 config :power_control,
   cpu_governor: :powersave,
   disable_hdmi: true,
-  disable_leds: true
+  disable_leds: true,
+  disable_usb: true
 ```
 
 ## What governors can I use?

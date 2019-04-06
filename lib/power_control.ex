@@ -51,7 +51,7 @@ defmodule PowerControl do
   All Led and CPU functions can return Elixir `File` error messages such as `:enoent`, which generally indicates you have configured the directories improperly for your specific device (unlikely) or that `PowerControl` does not support your device (most likely). In the unlikely case that your device can be supported by `PowerControl` but you must manually configure the directories, the config keys are `cpu_dir` and `led_dir`. I do not currently support configuring filenames.
   """
   require Logger
-  alias PowerControl.{CPU, LED, HDMI}
+  alias PowerControl.{CPU, LED, HDMI, USB}
 
   @startup_governor_warning "[PowerControl] No startup CPU Governor configured, device will use default."
   @directory_warning_cpu "[PowerControl] Could not find CPU directory, are you sure this is a Nerves device?"
@@ -78,6 +78,7 @@ defmodule PowerControl do
     end
 
     HDMI.init()
+    USB.init()
     :ok
   end
 
